@@ -27,6 +27,13 @@ jobs:
       - name: Restore node_modules
         run: npm ci
 
+      # Capacitor's own android/.gitignore excludes several generated-but-required pieces:
+      # capacitor-cordova-android-plugins/, the copied web assets (app/src/main/assets/public),
+      # and the generated capacitor.config.json / capacitor.plugins.json. `cap sync` regenerates
+      # all of them from the committed www/ build, so the native project is complete for Gradle.
+      - name: Sync Capacitor Android project
+        run: npx cap sync android
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
