@@ -1,0 +1,9 @@
+{
+  "appId": "co.punch.app",
+  "appName": "Punch",
+  "webDir": "www",
+  "backgroundColor": "#0b0d0f",
+  "android": {
+    "backgroundColor": "#0b0d0f"
+  }
+}
