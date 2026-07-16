@@ -16,6 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Capacitor's android/capacitor.settings.gradle references the Capacitor library at
+      # ../node_modules/@capacitor/android/capacitor, so node_modules must exist before Gradle
+      # runs. node_modules is gitignored, so restore it here deterministically from the lockfile.
+      - name: Restore node_modules
+        run: npm ci
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
