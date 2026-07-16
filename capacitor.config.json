@@ -5,5 +5,9 @@
   "backgroundColor": "#0b0d0f",
   "android": {
     "backgroundColor": "#0b0d0f"
+  },
+  "server": {
+    "url": "https://152-42-157-132.sslip.io",
+    "cleartext": false
   }
 }
